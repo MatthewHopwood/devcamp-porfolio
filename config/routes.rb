@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :portfolios, except: [:show]
   # as: - this allows a custom path to be created, so the example would be 'portfolio_show_path(@portfolio_item)'
+  get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
   # get 'anything can go here' - this is the url path.
