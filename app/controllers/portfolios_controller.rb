@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
   layout "portfolio"
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_portfolio, only: [:edit, :update, :show, :destroy]
 
   def index
     @portfolio_items = Portfolio.all
@@ -11,9 +11,6 @@ class PortfoliosController < ApplicationController
 
   def angular
     @angular_portfolio_items = Portfolio.angular
-  end
-
-  def show
   end
 
   def new
@@ -44,6 +41,9 @@ class PortfoliosController < ApplicationController
         format.html { render :edit }
       end
     end
+  end
+
+  def show
   end
 
   def destroy
