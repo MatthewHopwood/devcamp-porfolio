@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/MatthewHopwood/ddarkbluu_view_tool
+  revision: d75660c23d78e2dd7a33c8bd3c9b382ca0e54e79
+  specs:
+    ddarkbluu_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,6 +217,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   byebug
   coffee-rails (~> 4.2)
+  ddarkbluu_view_tool!
   devise
   friendly_id
   hirb
