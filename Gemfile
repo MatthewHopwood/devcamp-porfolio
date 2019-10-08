@@ -63,3 +63,4 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 gem 'ddarkbluu_view_tool', git: 'https://github.com/MatthewHopwood/ddarkbluu_view_tool'
+gem 'petergate', '~> 2.0', '>= 2.0.1'
