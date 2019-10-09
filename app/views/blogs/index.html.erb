@@ -10,8 +10,6 @@
 
 <div class="col-md-8 blog-main">
 
-<%= link_to 'Write a New Blog', new_blog_path, class: "btn btn-dark mb-3" if logged_in?(:site_admin) %>
-
 <%= render @blogs %>
 
   <nav class="blog-pagination">
@@ -19,4 +17,4 @@
     <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
   </nav>
 
-</div><!-- /.blog-main -->
+</div>
