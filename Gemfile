@@ -64,3 +64,4 @@ gem 'jquery-rails'
 
 gem 'ddarkbluu_view_tool', git: 'https://github.com/MatthewHopwood/ddarkbluu_view_tool'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
