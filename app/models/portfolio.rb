@@ -1,6 +1,7 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
   accepts_nested_attributes_for :technologies,
+                                allow_destroy: true,
                                 reject_if: lambda { |attrs| attrs['name'].blank? }
                                 # rejects the technologies name input if it is blank
   validates_presence_of :title, :body
