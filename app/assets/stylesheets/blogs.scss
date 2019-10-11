@@ -1,8 +1,23 @@
 @import 'bootstrap';
 @import 'font-awesome';
 @import 'gritter';
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab&display=swap');
 
 /* stylelint-disable selector-list-comma-newline-after */
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
 
 .blog-header {
   line-height: 1;
@@ -10,16 +25,11 @@
 }
 
 .blog-header-logo {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
   font-size: 2.25rem;
 }
 
 .blog-header-logo:hover {
   text-decoration: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }
 
 .display-4 {
