@@ -11,6 +11,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= favicon_link_tag 'favicons/favicon.ico' %>
+
     <%= stylesheet_link_tag    'portfolios', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -30,7 +32,5 @@
     <%= render 'shared/portfolio_footer'%>
 
     <%= alerts %>
-
-    <%= source_helper("application") %>
   </body>
 </html>

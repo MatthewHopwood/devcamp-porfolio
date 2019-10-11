@@ -1,17 +1,23 @@
-<div class="container">
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-12 px-0">
-      <h1 class="display-4 font-italic"><%= @blogs.first.title %></h1>
-      <p class="lead my-3"><%= @blogs.first.body.truncate(250) %></p>
-      <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(@blogs.first.id), class: "text-white font-weight-bold" %></p>
+<% if @blogs.exists? %>
+  <div class="container">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-12 px-0 break-text">
+        <h1 class="display-4 font-italic"><%= @blogs.first.title %></h1>
+        <p class="lead my-3"><%= markdown @blogs.first.body.truncate(250) %></p>
+        <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(@blogs.first.id), class: "text-white font-weight-bold" %></p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
-<div class="col-md-8 blog-main">
+<div class="col-md-8 blog-main break-text">
 
 <p class="lead">
   <%= link_to 'Write a New Blog', new_blog_path, class: "btn btn-dark mb-3" if logged_in?(:site_admin) %>
+</p>
+
+<p class="lead">
+  <%= link_to 'Topics', topics_path, class: "btn btn-info mb-3" %>
 </p>
 
 
