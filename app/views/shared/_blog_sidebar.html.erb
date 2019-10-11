@@ -9,7 +9,7 @@
   <div class="sidebar-module p-4">
     <h4 class="font-italic">Topics</h4>
     <% @side_bar_topics.each do |topic| %>
-      <p><%= link_to topic.title, topic_path(topic) %></p>
+      <p><%= link_to topic.title, topic_path(topic) if topic.blogs.published.exists? %></p>
     <% end %>
   </div>
 
