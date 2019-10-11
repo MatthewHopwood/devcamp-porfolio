@@ -9,6 +9,12 @@
 </div>
 
 <div class="col-md-8 blog-main">
+
+<p class="lead">
+  <%= link_to 'Write a New Blog', new_blog_path, class: "btn btn-dark mb-3" if logged_in?(:site_admin) %>
+</p>
+
+
 <%= paginate @blogs %>
 
 <%= render @blogs %>
