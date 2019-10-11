@@ -1,7 +1,7 @@
 <div class="container mt-3">
   <div class="row">
     <div class="col-md-7">
-      <%= image_tag portfolio_img(@portfolio_item.thumb_image, 'main'), width: '100%' %>
+      <%= image_tag portfolio_img(@portfolio_item.main_image.url, 'main'), width: '100%' %>
       <% if logged_in?(:site_admin) %>
         <%= link_to 'Edit Portfolio Item', edit_portfolio_path(@portfolio_item), class: "btn btn-success mt-3" %>
       <% end %>

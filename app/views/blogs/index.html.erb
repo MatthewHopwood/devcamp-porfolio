@@ -1,12 +1,14 @@
-<div class="container">
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-12 px-0 break-text">
-      <h1 class="display-4 font-italic"><%= @blogs.first.title %></h1>
-      <p class="lead my-3"><%= markdown @blogs.first.body.truncate(250) %></p>
-      <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(@blogs.first.id), class: "text-white font-weight-bold" %></p>
+<% if @blogs.exists? %>
+  <div class="container">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-12 px-0 break-text">
+        <h1 class="display-4 font-italic"><%= @blogs.first.title %></h1>
+        <p class="lead my-3"><%= markdown @blogs.first.body.truncate(250) %></p>
+        <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(@blogs.first.id), class: "text-white font-weight-bold" %></p>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="col-md-8 blog-main break-text">
 
