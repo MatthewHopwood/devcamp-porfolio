@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/MatthewHopwood/ddarkbluu_view_tool
-  revision: d75660c23d78e2dd7a33c8bd3c9b382ca0e54e79
-  specs:
-    ddarkbluu_view_tool (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -100,6 +94,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    ddarkbluu_view_tool (0.1.1)
     devise (4.7.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -283,7 +278,7 @@ DEPENDENCIES
   cocoon (~> 1.2, >= 1.2.14)
   coderay (~> 1.1, >= 1.1.2)
   coffee-rails (~> 4.2)
-  ddarkbluu_view_tool!
+  ddarkbluu_view_tool (~> 0.1.1)
   devise
   dotenv-rails (~> 2.7, >= 2.7.5)
   font-awesome-rails (~> 4.7, >= 4.7.0.5)
