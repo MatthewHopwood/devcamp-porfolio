@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_cable.allowed_request_origins = ['https://mh-portfolio-app.herokuapp.com', 'http://mh-portfolio-app.herokuapp.com']
+  config.action_cable.url = "wss://mh-portfolio-app.herokuapp.com/cable"
 end
