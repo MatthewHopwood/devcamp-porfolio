@@ -27,6 +27,24 @@
   <%= render 'comments/comment_form' %>
 
   <div id="comments" data-blog-id="<%= @blog.id %>">
-    <%= render @blog.comments.recent %>
+    <% if @blog.comments.count > 10 %>
+      <button
+              class= "btn btn-success mt-2"
+              type="button"
+              data-toggle="collapse"
+              data-target="#moreComments"
+      >
+        See more comments.
+      </button>
+
+      <div class="collapse" id="moreComments">
+        <%= render @blog.comments.includes(:user).slice(0..@blog.comments.count - 11) %>
+      </div>
+
+      <%= render @blog.comments.includes(:user).last(10) %>
+    <% else %>
+      <%= render @blog.comments.includes(:user).last(10) %>
+    <% end %>
+
   </div>
 </div>

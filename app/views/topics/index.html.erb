@@ -2,6 +2,11 @@
 
   <h1> Topics </h1>
 
+  <% if logged_in?(:site_admin) %>
+    <%= link_to 'Create New Topic', new_topic_path, class: "btn btn-dark btn-lg" %>
+
+  <% end %>
+
   <%= render @topics %>
 
 </div>
