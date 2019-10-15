@@ -1,9 +1,12 @@
-<% if @blogs.exists? %>
+<% if @blogs.featured.exists? %>
   <div class="container">
     <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
       <div class="col-md-12 px-0 break-text">
-        <h1 class="display-4 font-italic"><%= @blogs.first.title %></h1>
-        <p class="lead my-3"><%= markdown @blogs.first.body.truncate(250) %></p>
+        <% if logged_in?(:site_admin) %>
+          <%= link_to fa_icon('star 2x'), toggle_featured_blog_path(@featured_blog), style: blog_featured_color(@featured_blog) %>
+        <% end %>
+        <h1 class="display-4 font-italic"><%= @blogs.featured.first.title %></h1>
+        <p class="lead my-3"><%= markdown @blogs.featured.first.body.truncate(250) %></p>
         <p class="lead mb-0"><%= link_to 'Continue reading...', blog_path(@blogs.first.id), class: "text-white font-weight-bold" %></p>
       </div>
     </div>

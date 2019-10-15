@@ -28,4 +28,9 @@ module BlogsHelper
       'color: red;'
     end
   end
+  def blog_featured_color blog
+    if blog.featured?
+      'color: yellow;'
+    end
+  end
 end

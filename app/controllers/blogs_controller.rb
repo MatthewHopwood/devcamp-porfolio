@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status, :toggle_featured]
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status, :toggle_featured]
   layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status, :toggle_featured]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
@@ -13,6 +13,7 @@ class BlogsController < ApplicationController
       @blogs = Blog.published.recent.page(params[:page]).per(5)
     end
     @page_title = "My Portfolio Blog"
+    @featured_blog = Blog.featured.first
   end
 
   # GET /blogs/1
@@ -76,11 +77,27 @@ class BlogsController < ApplicationController
   def toggle_status
     if @blog.draft?
       @blog.published!
-    elsif @blog.published?
+      redirect_to blogs_path, notice: 'Post has now been published.'
+    elsif @blog.published? && @blog.not_featured?
       @blog.draft!
+      redirect_to blogs_path, notice: 'Post is now in draft mode'
+    elsif @blog.published? && @blog.featured?
+      redirect_to blogs_path, notice: 'Post cannot be drafted whilst a featured post'
     end
 
-    redirect_to blogs_path, notice: 'Post status has been updated.'
+
+  end
+
+  def toggle_featured
+    if @blog.not_featured? && @blog.published?
+      @blog.featured!
+      redirect_to blogs_path, notice: 'Blog is now featured.'
+    elsif @blog.featured?
+      @blog.not_featured!
+      redirect_to blogs_path, notice: 'Blog is no long featured.'
+    else
+      redirect_to blogs_path, notice: 'Blog must be published first.'
+    end
   end
 
   private
@@ -91,7 +108,7 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body, :topic_id, :status)
+      params.require(:blog).permit(:title, :body, :topic_id, :status, :featured)
     end
 
     def set_sidebar_topics
