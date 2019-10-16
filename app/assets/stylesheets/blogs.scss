@@ -116,7 +116,7 @@ h6, .h6 {
  * Blog posts
  */
 .blog-post {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .blog-post-title {
   margin-bottom: .25rem;
@@ -173,4 +173,37 @@ h6, .h6 {
 
  .blogcrumb a {
    margin: 0px 10px;
+ }
+
+ .featured_post {
+  overflow-y: hidden;
+  max-height: 40vh;
+ }
+
+ .restrict-height {
+   max-height: 75vh;
+   overflow-y: hidden;
+  //  overflow-x: hidden;
+ }
+
+ .two-font {
+  font-size: 1.25rem;
+ }
+
+ .vertical-align-middle {
+   vertical-align: middle;
+ }
+
+ .blog-main > p > img {
+   max-width: 500px;
+   height: auto;
+ }
+ .blog-post > p > img {
+   max-width: 500px;
+   height: auto;
+ }
+
+ .featured-post > p > img {
+   max-width: 1000px;
+   height: auto;
  }
