@@ -81,6 +81,7 @@ class BlogsController < ApplicationController
   end
 
   def toggle_featured
+    @blogs = Blog.all
     featured
   end
 

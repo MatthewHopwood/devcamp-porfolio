@@ -14,7 +14,7 @@ module ToggleableAttribute
   end
 
   def featured
-    if @blog.not_featured? && @blog.published? && Blog.featured.blank?
+    if @blog.not_featured? && @blog.published? && @blogs.featured.blank?
       @blog.featured!
       redirect_to blogs_path, notice: 'Post is now featured.'
     elsif @blog.featured?
@@ -22,7 +22,7 @@ module ToggleableAttribute
       redirect_to blogs_path, notice: 'Post is no long featured.'
     elsif @blog.draft?
       redirect_to blogs_path, notice: 'Post must be published first.'
-    elsif @blog.published? && Blog.featured.exists?
+    elsif @blog.published? && @blogs.featured.exists?
       redirect_to blogs_path, notice: 'Only one Post can be featured at a time'
     else
     end
