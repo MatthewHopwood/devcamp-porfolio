@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+  include ToggleableAttribute
+
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status, :toggle_featured]
   before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status, :toggle_featured]
   layout "blog"
@@ -75,29 +77,11 @@ class BlogsController < ApplicationController
   end
 
   def toggle_status
-    if @blog.draft?
-      @blog.published!
-      redirect_to blogs_path, notice: 'Post has now been published.'
-    elsif @blog.published? && @blog.not_featured?
-      @blog.draft!
-      redirect_to blogs_path, notice: 'Post is now in draft mode'
-    elsif @blog.published? && @blog.featured?
-      redirect_to blogs_path, notice: 'Post cannot be drafted whilst a featured post'
-    end
-
-
+    status
   end
 
   def toggle_featured
-    if @blog.not_featured? && @blog.published?
-      @blog.featured!
-      redirect_to blogs_path, notice: 'Blog is now featured.'
-    elsif @blog.featured?
-      @blog.not_featured!
-      redirect_to blogs_path, notice: 'Blog is no long featured.'
-    else
-      redirect_to blogs_path, notice: 'Blog must be published first.'
-    end
+    featured
   end
 
   private
